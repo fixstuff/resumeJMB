@@ -688,6 +688,46 @@
         <section id="projects" class="content-section">
             <div class="timeline">
 
+                <!-- Independent Engineering Projects -->
+                <div class="company-card expanded">
+                    <div class="company-header" onclick="toggleCard(this)">
+                        <div class="company-info">
+                            <h3>Independent Engineering - Software & Protocol Development</h3>
+                            <span class="dates">2024 - Present</span>
+                        </div>
+                        <div class="toggle-icon">+</div>
+                    </div>
+                    <div class="company-content">
+                        <div class="company-body">
+                            <div class="project-item highlight">
+                                <h4>GOPLC - IEC 61131-3 PLC Runtime</h4>
+                                <ul>
+                                    <li>Engineered a full IEC 61131-3 Structured Text PLC runtime in Go — 173K lines of code, 330 source files, single portable 62MB binary</li>
+                                    <li>Implemented 1,400+ built-in functions spanning crypto (AES-256, RSA, JWT), HTTP/REST, JSON, data structures, regex, file I/O, and database operations</li>
+                                    <li>Built 10+ industrial protocol drivers: Modbus TCP, EtherNet/IP, OPC UA, FINS (Omron), DNP3, BACnet, S7 (Siemens), SNMP, DF1, and MQTT — each with full client and server implementations</li>
+                                    <li>Architected multi-task cooperative scheduler with real-time features (mlockall, CPU affinity, SCHED_FIFO) achieving 20,000 scans/sec</li>
+                                    <li>Developed DataLayer inter-PLC communication system with lock-free shared memory achieving 1&micro;s overhead per variable exchange</li>
+                                    <li>Built web-based IDE with ST syntax highlighting, real-time variable monitoring (SSE/WebSocket), and 40+ REST API endpoints</li>
+                                    <li>Implemented protocol analyzer with packet capture, decode, and PCAP export for 8 industrial protocols</li>
+                                    <li>Authored white paper: <a href="https://github.com/fixstuff/GOPLC-Showcase/blob/main/docs/whitepaper-datacenter-gateway.pdf" target="_blank" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent);">GOPLC: A Universal Gateway for Data Center Infrastructure Management</a></li>
+                                </ul>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Go</span>
+                                    <span class="tech-tag">IEC 61131-3</span>
+                                    <span class="tech-tag">Modbus TCP</span>
+                                    <span class="tech-tag">EtherNet/IP</span>
+                                    <span class="tech-tag">OPC UA</span>
+                                    <span class="tech-tag">DNP3</span>
+                                    <span class="tech-tag">BACnet</span>
+                                    <span class="tech-tag">REST API</span>
+                                    <span class="tech-tag">WebSocket</span>
+                                    <span class="tech-tag">Docker</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- ITAC Corporation -->
                 <div class="company-card expanded">
                     <div class="company-header" onclick="toggleCard(this)">
