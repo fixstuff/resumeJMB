@@ -5,38 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>James Belcher - Senior Controls Engineer / AI Systems Integration</title>
     <style>
+        /* Palette: cold steel + molten orange, shared with controlforge.tools */
         :root {
-            --primary: #1a365d;
-            --secondary: #2c5282;
-            --accent: #3182ce;
-            --light: #ebf8ff;
-            --text: #2d3748;
-            --muted: #718096;
+            --primary: #1a212a;        /* headings */
+            --secondary: #3a4757;      /* sub-headings */
+            --accent: #d65a00;         /* molten (dark) — links, tags, timeline */
+            --accent-hover: #ff7a18;
+            --header-1: #1a212a;       /* header gradient */
+            --header-2: #3a4757;
+            --light: #fff3e8;          /* warm hover tint */
+            --text: #1a212a;
+            --muted: #5b6673;
             --success: #38a169;
-            --border: #e2e8f0;
-            --bg-gradient-1: #f7fafc;
-            --bg-gradient-2: #edf2f7;
+            --border: #e3e6ea;
+            --bg-gradient-1: #f7f8fa;
+            --bg-gradient-2: #eef0f3;
             --card-bg: white;
-            --card-shadow: rgba(0,0,0,0.08);
-            --project-bg-1: #f8fafc;
+            --card-shadow: rgba(11,14,18,0.08);
+            --project-bg-1: #f8f9fb;
             --project-bg-2: #fff;
+            --highlight-ok: #eef7f1;
+            --highlight-warm: #fff1e4;
         }
 
         [data-theme="dark"] {
-            --primary: #90cdf4;
-            --secondary: #63b3ed;
-            --accent: #4299e1;
-            --light: #1a202c;
-            --text: #e2e8f0;
-            --muted: #a0aec0;
+            --primary: #f3f4f6;
+            --secondary: #ffa24d;
+            --accent: #ff7a18;
+            --accent-hover: #ffa24d;
+            --header-1: #11161c;
+            --header-2: #27313d;
+            --light: #1a212a;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
             --success: #68d391;
-            --border: #4a5568;
-            --bg-gradient-1: #1a202c;
-            --bg-gradient-2: #2d3748;
-            --card-bg: #2d3748;
-            --card-shadow: rgba(0,0,0,0.3);
-            --project-bg-1: #374151;
-            --project-bg-2: #2d3748;
+            --border: #27313d;
+            --bg-gradient-1: #0b0e12;
+            --bg-gradient-2: #11161c;
+            --card-bg: #1a212a;
+            --card-shadow: rgba(0,0,0,0.5);
+            --project-bg-1: #1f2731;
+            --project-bg-2: #1a212a;
+            --highlight-ok: #1c2a24;
+            --highlight-warm: #261d15;
         }
 
         * {
@@ -62,12 +73,12 @@
 
         /* Header Section */
         .header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, var(--header-1) 0%, var(--header-2) 100%);
             color: white;
             padding: 40px;
             border-radius: 16px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 40px rgba(26, 54, 93, 0.3);
+            box-shadow: 0 10px 40px rgba(11, 14, 18, 0.35);
             display: flex;
             align-items: center;
             gap: 40px;
@@ -171,7 +182,7 @@
             align-items: center;
             gap: 8px;
             background: white;
-            color: var(--primary);
+            color: var(--header-1);
             padding: 10px 20px;
             border-radius: 8px;
             font-weight: 600;
@@ -196,6 +207,30 @@
         }
 
         @media print {
+            /* Always print the light palette, with backgrounds, whatever theme is active */
+            :root, [data-theme="dark"] {
+                --primary: #1a212a;
+                --secondary: #3a4757;
+                --accent: #d65a00;
+                --accent-hover: #ff7a18;
+                --header-1: #1a212a;
+                --header-2: #3a4757;
+                --light: #fff3e8;
+                --text: #1a212a;
+                --muted: #5b6673;
+                --success: #38a169;
+                --border: #e3e6ea;
+                --bg-gradient-1: #ffffff;
+                --bg-gradient-2: #ffffff;
+                --card-bg: white;
+                --card-shadow: rgba(0,0,0,0);
+                --project-bg-1: #f8f9fb;
+                --project-bg-2: #fff;
+                --highlight-ok: #eef7f1;
+                --highlight-warm: #fff1e4;
+            }
+            * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            body { background: white; }
             .download-btn { display: none; }
             .theme-toggle { display: none; }
             .save-btn { display: none; }
@@ -449,15 +484,15 @@
         }
 
         .project-item.highlight {
-            border-left-color: #e53e3e;
+            border-left-color: var(--accent-hover);
         }
 
         [data-theme="dark"] .project-item:hover {
-            background: linear-gradient(135deg, #2d4a3d 0%, var(--project-bg-2) 100%);
+            background: linear-gradient(135deg, var(--highlight-ok) 0%, var(--project-bg-2) 100%);
         }
 
         [data-theme="dark"] .project-item.highlight {
-            background: linear-gradient(135deg, #4a2d2d 0%, var(--project-bg-2) 100%);
+            background: linear-gradient(135deg, var(--highlight-warm) 0%, var(--project-bg-2) 100%);
         }
 
         .project-item h4 {
@@ -549,19 +584,19 @@
         }
 
         .skill-list li {
-            padding: 8px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            padding: 8px 0 8px 18px;
+            position: relative;
         }
 
         .skill-list li::before {
             content: '';
+            position: absolute;
+            left: 0;
+            top: calc(8px + 0.45em);
             width: 8px;
             height: 8px;
             background: var(--accent);
             border-radius: 50%;
-            flex-shrink: 0;
         }
 
         .skill-list a {
@@ -616,10 +651,44 @@
 
         /* Print Styles */
         @media print {
-            .nav-tabs { display: none; }
+            .nav-tabs, .download-btn, .theme-toggle, .save-btn, .toggle-icon { display: none !important; }
+            /* Print every tab, in the order the tabs appear on screen */
+            .container { display: flex; flex-direction: column; padding: 0; }
+            .header { order: 0; }
+            #milestones { order: 1; }
+            #projects { order: 2; }
+            #skills { order: 3; }
+            #education { order: 4; }
+            .footer { order: 5; }
+            .content-section { display: block !important; animation: none !important; }
+            .content-section::before {
+                display: block;
+                font-size: 1.4em;
+                font-weight: 700;
+                color: var(--primary);
+                border-bottom: 2px solid var(--accent);
+                margin: 18px 0 12px;
+                padding-bottom: 4px;
+                break-after: avoid;
+            }
+            #milestones::before { content: "Career"; }
+            #projects::before { content: "Major Projects"; }
+            #skills::before { content: "Technical Skills"; }
+            #education::before { content: "Education & Patent"; }
             .company-content { max-height: none !important; }
-            .toggle-icon { display: none; }
-            .company-card { break-inside: avoid; }
+            /* Break between bullets, never inside one; keep headings with what follows */
+            .company-card, .project-item { break-inside: auto; }
+            .company-header, .project-item h4, .skill-category h3 { break-after: avoid; }
+            .project-item li, .milestone-list li, .skill-list li, .tech-tags { break-inside: avoid; }
+            .skill-category { break-inside: avoid; }
+            /* Tighter spacing on paper */
+            .container { font-size: 0.92em; }
+            .header { padding: 24px; margin-bottom: 16px; }
+            .company-card { margin-bottom: 14px; }
+            .company-header { padding: 12px 20px; }
+            .milestone-list li { padding: 6px 0 6px 30px; }
+            .milestone-list li::before { top: 11px; }
+            .project-item { margin-bottom: 12px; padding: 12px; }
         }
     </style>
 </head>
